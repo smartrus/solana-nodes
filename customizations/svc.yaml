@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: solana-kong-haproxy
+  namespace: haproxy
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app.kubernetes.io/component: haproxy
+  sessionAffinity: None
+  type: ClusterIP
+
